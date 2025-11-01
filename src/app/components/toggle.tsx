@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 import { Edit, Trash2, MoreHorizontal } from "lucide-react";
 import { useUIStore } from "../stores/uiStore";
 
@@ -20,11 +20,14 @@ const DropdownToggle: React.FC<DropdownProps> = ({
   const ref = useRef<HTMLDivElement>(null);
   const isOpen = openDropdownId === routineId;
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (ref.current && !ref.current.contains(event.target as Node)) {
-      setOpenDropdown(null);
-    }
-  };
+  const handleClickOutside = useCallback(
+    (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    },
+    [setOpenDropdown] 
+  );
 
   useEffect(() => {
     if (isOpen) {
@@ -32,7 +35,7 @@ const DropdownToggle: React.FC<DropdownProps> = ({
       return () =>
         document.removeEventListener("mousedown", handleClickOutside);
     }
-  }, [isOpen]);
+  }, [isOpen, handleClickOutside]); 
 
   return (
     <div className={`relative ${className}`} ref={ref}>

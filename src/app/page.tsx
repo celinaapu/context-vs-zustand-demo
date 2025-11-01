@@ -1,20 +1,17 @@
 "use client";
-import { Search, Plus, Menu } from "lucide-react";
-
-import { SidebarProvider, useSidebar } from "./components/contextProvider";
+import { Search, Plus } from "lucide-react";
+import { SidebarProvider} from "./components/contextProvider";
 import DeleteModal from "./components/deleteModal";
 import DropdownToggle from "./components/toggle";
 import { useRoutineStore } from "./stores/routineStore";
 import Header from "./lib/header";
 
 const AppContent: React.FC = () => {
-  const { toggleSidebar } = useSidebar();
   const { routines } = useRoutineStore();
 
   return (
     <div className="h-screen bg-gray-50 flex">
       <div className="flex-1 flex flex-col overflow-hidden">
-        
         <Header />
 
         <div className="flex-1 overflow-auto bg-gray-50">
@@ -23,12 +20,12 @@ const AppContent: React.FC = () => {
               Your Routines
             </h1>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Routines are a crucial part of anyone's life. They're the
-              fundamental building blocks of what later become habits. Routines
-              can be crafted as a collection of habits, that you want to
-              implement during certain parts of the day. Create routines and
-              make sure you're reminded of what you want to do, and when you
-              want to do it!
+              Routines are a crucial part of anyone&apos;s life. They&apos;re
+              the fundamental building blocks of what later become habits.
+              Routines can be crafted as a collection of habits, that you want
+              to implement during certain parts of the day. Create routines and
+              make sure you&apos;re reminded of what you want to do, and when
+              you want to do it!
             </p>
           </div>
 
@@ -70,11 +67,12 @@ const AppContent: React.FC = () => {
                             {routine.timeRange}
                           </span>
                         </div>
-
                         <DropdownToggle
                           routineId={routine.id}
                           routineTitle={routine.title}
-                          onEdit={() => alert(`Edit ${routine.title}`)}
+                          onEdit={() =>
+                            console.log(`Editing routine: ${routine.title}`)
+                          }
                         />
                       </div>
                       <div className="bg-gray-400 h-24 rounded my-4"></div>
