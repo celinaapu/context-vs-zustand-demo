@@ -1,6 +1,7 @@
 "use client";
 
-import { Menu, Bell, Settings, User } from "lucide-react";
+import { Bell, Menu, Settings, User } from "lucide-react";
+import Image from "next/image";
 import { useSidebar } from "../components/contextProvider";
 import Sidebar from "../components/sidebar";
 
@@ -17,11 +18,19 @@ const Header: React.FC = () => {
         >
           <Menu size={20} />
         </button>
+
         <div className="flex-1 flex justify-center">
-          <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-            <span className="text-blue-600 font-bold text-sm">P</span>
+          <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center overflow-hidden">
+            <Image
+              src="https://res.cloudinary.com/celina/image/upload/v1741250556/download_1_umgcz8.jpg"
+              alt="App Logo"
+              width={40}
+              height={40}
+              className="object-contain"
+            />
           </div>
         </div>
+
         <div className="flex items-center space-x-4">
           <button
             className="text-blue-700 hover:text-blue-900"
@@ -43,6 +52,7 @@ const Header: React.FC = () => {
           </button>
         </div>
       </div>
+
       <Sidebar />
     </header>
   );

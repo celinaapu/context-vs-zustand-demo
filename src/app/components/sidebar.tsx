@@ -1,5 +1,9 @@
-import { Calendar, BookOpen, Target, Home, User, X } from "lucide-react";
+"use client";
+
+import { BookOpen, Calendar, Home, Target, X } from "lucide-react";
 import { useSidebar } from "./contextProvider";
+import Image from "next/image";
+import React from "react";
 
 const sidebarItems = [
   { icon: Home, label: "Dashboard", active: true },
@@ -20,14 +24,21 @@ const Sidebar: React.FC = () => {
       >
         <div className="flex items-center justify-between h-16 px-6 bg-blue-600 text-white">
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-              <span className="text-blue-600 font-bold text-sm">P</span>
+            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center overflow-hidden">
+              <Image
+                src="https://res.cloudinary.com/celina/image/upload/v1741250556/download_1_umgcz8.jpg"
+                alt="App Logo"
+                width={32}
+                height={32}
+                className="object-cover rounded-full"
+              />
             </div>
             <span className="font-semibold">Productivity</span>
           </div>
           <button
             onClick={closeSidebar}
-            className=" p-1 rounded-md hover:bg-blue-700 text-white"
+            className="p-1 rounded-md hover:bg-blue-700 text-white"
+            aria-label="Close sidebar"
           >
             <X />
           </button>
@@ -55,8 +66,14 @@ const Sidebar: React.FC = () => {
 
         <div className="absolute bottom-8 left-4 right-4">
           <div className="flex items-center space-x-3 px-4 py-3 bg-gray-50 rounded-lg">
-            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-              <User size={16} className="text-gray-600" />
+            <div className="w-10 h-10 rounded-full overflow-hidden">
+              <Image
+                src="https://res.cloudinary.com/celina/image/upload/v1741250556/download_1_umgcz8.jpg"
+                alt="User Avatar"
+                width={40}
+                height={40}
+                className="object-cover"
+              />
             </div>
             <div className="flex-1">
               <p className="text-sm font-medium text-gray-900">Martin</p>
