@@ -73,7 +73,7 @@ const AppContent: React.FC = () => {
 
           <div className="px-6 mb-8">
             <div className="flex items-center justify-between max-w-6xl mx-auto">
-              <div className="max-w-md w-full relative">
+              <div className="max-w-md w-full text-black relative">
                 <Search
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
                   size={18}
@@ -83,7 +83,7 @@ const AppContent: React.FC = () => {
                   value={searchValue}
                   onChange={handleSearchChange}
                   placeholder="Search routines..."
-                  className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none shadow-sm"
+                  className="w-full pl-12 pr-4 py-3 text-gray-800 placeholder-gray-500 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none shadow-sm"
                 />
               </div>
 
