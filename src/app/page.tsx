@@ -139,6 +139,8 @@ const AppContent: React.FC = () => {
                             <Image
                               src={routine.image}
                               alt={routine.title}
+                              width={400}
+                              height={250}
                               className="w-full h-full object-cover"
                             />
                           ) : (
